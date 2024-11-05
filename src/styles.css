@@ -1,3 +1,184 @@
-body {
-    background-color: rebeccapurple;
+:root{
+    --background-color: linear-gradient(to bottom right, #EDEEF2, #C3C3C3);
+    --text-color: black;
+    --main-card-bg-color: #DADBDE;
+    --default-card-bg-color: #F6F7F7;
+    --default-scroll-track-color: #D3D3D5;
+    --default-scroll-handle-color: #A7A7A7;
+    --default-darker-bg-color: #C9CBD1;
+}
+
+html{
+    height: 100%;
+}
+  
+body{
+    height: 100%;
+    background: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainCard{
+    background-color: var(--main-card-bg-color);
+    display: flex;
+    height: 90%; 
+    width: 63%; 
+    border-radius: 39px 50px 50px 39px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, .25);
+    margin: 23px;
+}
+
+.projectsNotesLayout{
+    width: 33.33%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* Projects Section */
+
+.projectsSection{
+    margin: 23px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+      flex: 0 0 60%;
+      overflow: auto;
+}
+
+.projectsContainer{
+
+  
+    padding-right: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: auto;
+
+
+}
+
+
+::-webkit-scrollbar {
+    width: 13px;
+
+}
+  
+
+::-webkit-scrollbar-track {
+    background: var(--default-scroll-track-color);
+    border-radius: 20px;
+}
+  
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--default-scroll-handle-color);
+    border-radius: 20px;
+    
+
   }
+  
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+.projectCard{
+    flex-shrink: 0;
+    height: 130px;
+    border-radius: 20px;
+    
+    background-color: var(--default-card-bg-color);
+}
+
+.selectedProjectCard{
+    border: solid 6px #C6C8CB;
+
+}
+  
+.bigBlueBtn{
+    background-color: #17303A;
+    color: #FFFFFF;
+    font-size: 20px;
+    padding: 15px;
+    border: none;
+    border-radius: 20px;
+   
+    /*margin-right: 25px;   FIX LATER*/
+}
+
+/* Notes Section */
+
+.notesSection{
+    margin: 0 23px 23px 23px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: var(--default-card-bg-color);
+    border-radius: 20px;
+    overflow: auto;
+}
+
+
+.notesContainer{
+
+  
+    padding-right: 13px;
+    margin: 10px 13px 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: auto;
+
+
+}
+
+.darkerContainer{
+    height: 90px;
+    background-color: var(--default-darker-bg-color);
+
+}
+
+.noteCard{
+
+    justify-content: flex-end;
+    align-items: flex-end;
+
+}
+
+.smallBlueBtn{
+    color: #ffffff;
+    background-color: #17303A;
+    font-size: 12pt;
+    width: fit-content;
+    padding: 10px 20px 10px 20px;
+    border: none;
+    border-radius: 20px;
+   
+
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-left: auto;
+    margin-right: 15px;
+    margin-bottom: 15px;
+
+}
+
+
+  /* Dark mode styles */
+  body.dark-mode {
+    --background-color: linear-gradient(to bottom right, #4C5471, #19202F);
+    --text-color: white;
+    --main-card-bg-color: #5B647F;
+    --default-card-bg-color: #737FA1;
+    --default-scroll-track-color: #4A587D;
+    --default-scroll-handle-color: #283457;
+    --default-darker-bg-color: #737FA1;
+    
+  }
+  
