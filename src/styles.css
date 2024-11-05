@@ -6,10 +6,13 @@
     --default-scroll-track-color: #D3D3D5;
     --default-scroll-handle-color: #A7A7A7;
     --default-darker-bg-color: #C9CBD1;
+    font-family: "Ubuntu", serif;
 }
 
 html{
     height: 100%;
+    padding: 0;
+    margin: 0;
 }
   
 body{
@@ -19,6 +22,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0;
+    margin: 0;
 }
 
 .mainCard{
@@ -26,12 +31,12 @@ body{
     display: flex;
     height: 90%; 
     width: 63%; 
-    border-radius: 39px 50px 50px 39px;
+    border-radius: 59px 50px 50px 39px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, .25);
     margin: 23px;
 }
 
-.projectsNotesLayout{
+.sectionLayout{
     width: 33.33%;
     height: 100%;
     display: flex;
@@ -40,14 +45,13 @@ body{
 }
 
 /* Projects Section */
-
 .projectsSection{
     margin: 23px;
     display: flex;
     flex-direction: column;
     gap: 20px;
-      flex: 0 0 60%;
-      overflow: auto;
+    flex: 0 0 55%;
+    overflow: auto;
 }
 
 .projectsContainer{
@@ -88,28 +92,54 @@ body{
   }
 
 .projectCard{
+    display: flex;
+    flex-direction: row;
     flex-shrink: 0;
-    height: 130px;
-    border-radius: 20px;
-    
+    height: 100px;
+    border-radius: 40px;
+    padding: 20px;
     background-color: var(--default-card-bg-color);
+}
+
+.projectCard p{
+    color:#454545;
+}
+
+.editBtnContainer{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 15px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.icon {
+    width: 24px; /* Adjust as needed */
+    height: auto;
 }
 
 .selectedProjectCard{
     border: solid 6px #C6C8CB;
 
 }
-  
-.bigBlueBtn{
-    background-color: #17303A;
-    color: #FFFFFF;
-    font-size: 20px;
-    padding: 15px;
-    border: none;
-    border-radius: 20px;
-   
-    /*margin-right: 25px;   FIX LATER*/
+
+
+.projectColorIndicator{
+    background-color: #555;
+    width: 20px;
+    height: 100%;
+    border-radius: 10px;
+    margin-right: 20px;
 }
+  
 
 /* Notes Section */
 
@@ -134,8 +164,17 @@ body{
     flex-direction: column;
     gap: 20px;
     overflow: auto;
+    flex-grow: 1;
 
 
+}
+
+
+.notesContainer img {
+    margin-left: 30px;
+    width: 55%;
+    height: auto;
+    
 }
 
 .darkerContainer{
@@ -151,23 +190,54 @@ body{
 
 }
 
-.smallBlueBtn{
-    color: #ffffff;
+.sortSection{
+    display: flex;
+    justify-content: flex-end;
+    gap:20px;
+    align-items: center;
+}
+
+
+/* Buttons */
+button{
+    border: none;
+    border-radius: 40px;
+    font-family: "Ubuntu", serif;
+
+}
+
+.darkBtn{
     background-color: #17303A;
+    color: #FFFFFF; 
+}
+
+.greyBtn{
+    background-color: #B1B0B1;
+    color: #000000; 
+}
+
+.bigBtn{
+    font-size: 20px;
+    padding: 15px;
+
+}
+
+.smallBtn{
     font-size: 12pt;
     width: fit-content;
+    height: fit-content;
     padding: 10px 20px 10px 20px;
-    border: none;
-    border-radius: 20px;
-   
+    
+}
 
-    justify-content: flex-end;
-    align-items: flex-end;
+.notesBtnLayout{
     margin-left: auto;
     margin-right: 15px;
     margin-bottom: 15px;
-
+    
 }
+
+
 
 
   /* Dark mode styles */
@@ -182,3 +252,28 @@ body{
     
   }
   
+
+
+
+
+
+
+
+/* Responsivity for different screens */
+
+@media (max-width: 1400px) {
+    /* Styles for screens 1400px wide or less */
+    .mainCard{
+        height: 100%; 
+        width: 100%; 
+        border-radius: 0;
+        margin: 0;
+    }
+}
+
+@media (min-width: 2684px) { /* adjust width as needed */
+    .notesContainer img {
+        width: 263px;
+        height: auto;
+    }
+}

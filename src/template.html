@@ -5,56 +5,81 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <main class="mainCard">
-        <div class="projectsNotesLayout">
+        <div class="sectionLayout">
             <section aria-labelledby="projects-heading" class="projectsSection">
                 <div class="projectsContainer">
-                <article class="projectCard selectedProjectCard"> HELOHElo </article>
-                <article class="projectCard selectedProjectCard"> HELOHElo </article>
-                <article class="projectCard selectedProjectCard"> HELOHElo </article>
-                <article class="projectCard selectedProjectCard"> HELOHElo </article>
-                <article class="projectCard selectedProjectCard"> HELOHElo </article>
-                <article class="projectCard selectedProjectCard"> HELOHElo </article>
- 
+                    <article class="projectCard selectedProjectCard"> 
+                        <div class="projectColorIndicator"></div>
+                        <div class="">
+                            <h2>General</h2>
+                            <p>15 tasks</p>
+                        </div> 
+                    </article>  
+                    <article class="projectCard "> 
+                        <div class="projectColorIndicator"></div>
+                        <div class="">
+                            <h2>General</h2>
+                            <p>15 tasks</p>
+                        </div>   
+                        <div class="editBtnContainer">
+                            <button class="icon-btn">
+                                <img src="img/editBtn.svg" alt="Edit" class="icon">
+                            </button>
+                            <button class="icon-btn">
+                                <img src="img/dltBtn.svg" alt="Delete" class="icon">
+                            </button>
+                        </div>
+                    </article>
                 </div>
-                <button class="bigBlueBtn">+ CREATE NEW PROJECT</button>
-
-
-        
+                <button class="bigBtn darkBtn">+ CREATE NEW PROJECT</button>
             </section>
+
+            
             <section aria-labelledby="notes-heading" class="notesSection">
                 <div class="notesContainer">
-                    <article class="noteCard"> <!-- Project card content -->dfdf </article>
-                    <article class="noteCard"> <!-- Project card content -->dfdf </article>
-                    <article class="noteCard"> <!-- Project card content -->dfdf </article>
-                    <article class="noteCard"> <!-- Project card content -->dfdf </article>
-                    <article class="noteCard"> <!-- Project card content -->dfdf </article>
-                    <article class="noteCard"> <!-- Project card content -->dfdf </article>
-                    <article class="noteCard"> <!-- Project card content -->dfdf </article>
-                    <article class="noteCard"> <!-- Project card content -->dfdf </article>
-                    <article class="noteCard"> <!-- Project card content -->dfdf </article>
-                    <article class="noteCard"> <!-- Project card content -->dfdf </article>
-                    <article class="noteCard"> <!-- Project card content -->dfdf </article>
-                    <article class="noteCard"> <!-- Project card content -->dfdf </article>
-                    <article class="noteCard"> <!-- Project card content -->dfdf </article>
-                    <article class="noteCard"> <!-- Project card content -->dfdf </article>
-               
-                    <article class="noteCard"> <!-- Project card content -->dfdf </article>
-</div>
-                <button class="smallBlueBtn">+ ADD NOTE</button>
+                    <img src="img/notesIllustration.svg">
+
+                   <!--  <article class="noteCard">  dfdf </article>  -->
+                    
+                </div>
+                <button class="smallBtn darkBtn notesBtnLayout">+ ADD NOTE</button>
             </section>
 
 
 
         </div>
-        <div class="layoutSection">
-            <button id="theme-toggle">HELLO</button>
-            <article class="darkerContainer"> <!-- Project card content --> </article>
+        <div class="sectionLayout">
+            <article class="sortSection">
+                <p>Sort by:</p>
+                
+                <button class="smallBtn greyBtn">Priority</button>
+                <button class="smallBtn darkBtn">Date</button>
+
+            </article>
+            <section>
+                <article class="projectCard selectedProjectCard"> HELOHElo </article>
+                <article class="projectCard selectedProjectCard"> HELOHElo </article>
+                <article class="projectCard selectedProjectCard"> HELOHElo </article>
+                <article class="projectCard selectedProjectCard"> HELOHElo </article>
+            </section>
+
+
+
+            <button class="bigBtn darkBtn">+ CREATE NEW TASK</button>
+
+
+
         </div>
 
-        <div class="layoutSection"></div>
+        <div class="layoutSection">
+            <button id="theme-toggle">HELLO</button>
+        </div>
 
 
     </main>
