@@ -31,7 +31,7 @@ body{
     display: flex;
     height: 90%; 
     width: 63%; 
-    border-radius: 59px 50px 50px 39px;
+    border-radius: 59px 50px 50px 59px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, .25);
     margin: 23px;
 }
@@ -41,7 +41,6 @@ body{
     height: 100%;
     display: flex;
     flex-direction: column;
-
 }
 
 /* Projects Section */
@@ -55,50 +54,57 @@ body{
 }
 
 .projectsContainer{
-
-  
     padding-right: 13px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     overflow: auto;
-
-
 }
-
 
 ::-webkit-scrollbar {
     width: 13px;
-
 }
   
-
 ::-webkit-scrollbar-track {
     background: var(--default-scroll-track-color);
     border-radius: 20px;
 }
   
-
-  ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background: var(--default-scroll-handle-color);
     border-radius: 20px;
-    
-
-  }
+}
   
-
-  ::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
     background: #555;
-  }
+}
 
 .projectCard{
     display: flex;
     flex-direction: row;
     flex-shrink: 0;
-    height: 100px;
+    height: 65px;
     border-radius: 40px;
     padding: 20px;
     background-color: var(--default-card-bg-color);
+}
+
+.editableProjectCard{
+    background-color: #BFBFC0;
+}
+
+.projectTextContainer{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
+h2,p{
+    margin: 0;
+    padding: 0;
 }
 
 .projectCard p{
@@ -112,6 +118,15 @@ body{
     align-items: flex-end;
     justify-content: center;
     gap: 15px;
+}
+
+.saveBtnContainer{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 5px;
 }
 
 .icon-btn {
@@ -128,19 +143,16 @@ body{
 
 .selectedProjectCard{
     border: solid 6px #C6C8CB;
-
 }
-
 
 .projectColorIndicator{
     background-color: #555;
-    width: 20px;
+    min-width: 20px;
     height: 100%;
     border-radius: 10px;
     margin-right: 20px;
 }
   
-
 /* Notes Section */
 
 .notesSection{
@@ -150,44 +162,30 @@ body{
     flex-direction: column;
     flex-grow: 1;
     background-color: var(--default-card-bg-color);
-    border-radius: 20px;
+    border-radius: 40px;
     overflow: auto;
 }
-
 
 .notesContainer{
-
-  
-    padding-right: 13px;
-    margin: 10px 13px 10px 0;
+    margin: 25px 15px 25px 0;
+    gap:15px;
+    padding-right: 15px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
     overflow: auto;
     flex-grow: 1;
-
-
 }
-
 
 .notesContainer img {
     margin-left: 30px;
-    width: 55%;
+    width: 50%;
     height: auto;
-    
-}
-
-.darkerContainer{
-    height: 90px;
-    background-color: var(--default-darker-bg-color);
-
 }
 
 .noteCard{
-
-    justify-content: flex-end;
-    align-items: flex-end;
-
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
 }
 
 .sortSection{
@@ -197,13 +195,18 @@ body{
     align-items: center;
 }
 
+/* Days Tasks Section */
+
+.darkerContainer{
+    height: 90px;
+    background-color: var(--default-darker-bg-color);
+}
 
 /* Buttons */
 button{
     border: none;
     border-radius: 40px;
     font-family: "Ubuntu", serif;
-
 }
 
 .darkBtn{
@@ -227,21 +230,16 @@ button{
     width: fit-content;
     height: fit-content;
     padding: 10px 20px 10px 20px;
-    
 }
 
 .notesBtnLayout{
     margin-left: auto;
     margin-right: 15px;
     margin-bottom: 15px;
-    
 }
 
-
-
-
-  /* Dark mode styles */
-  body.dark-mode {
+/* Dark mode styles */
+body.dark-mode {
     --background-color: linear-gradient(to bottom right, #4C5471, #19202F);
     --text-color: white;
     --main-card-bg-color: #5B647F;
@@ -249,15 +247,8 @@ button{
     --default-scroll-track-color: #4A587D;
     --default-scroll-handle-color: #283457;
     --default-darker-bg-color: #737FA1;
-    
-  }
+}
   
-
-
-
-
-
-
 
 /* Responsivity for different screens */
 
@@ -271,7 +262,7 @@ button{
     }
 }
 
-@media (min-width: 2684px) { /* adjust width as needed */
+@media (min-width: 2684px) { /* Fix the image sizing so it fits the container */
     .notesContainer img {
         width: 263px;
         height: auto;
