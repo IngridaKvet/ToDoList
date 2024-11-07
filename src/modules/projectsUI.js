@@ -8,8 +8,10 @@ function createEditableProjectUI(){
   const projectsContainer = document.querySelector('.projectsContainer');
   const projectCard = document.createElement("article");
   projectCard.classList.add("projectCard", "editableProjectCard");
-  const colorIndicator = document.createElement("div");
+  const colorIndicator = document.createElement("input");
   colorIndicator.classList.add("projectColorIndicator");
+  colorIndicator.setAttribute('type', 'color');
+  colorIndicator.setAttribute('id', 'colorPicker');
   projectCard.appendChild(colorIndicator);
   const textContainer = document.createElement("div");
   textContainer.classList.add("projectTextContainer");
@@ -64,6 +66,12 @@ function createEditableProjectUI(){
     createModalOverlay();
   });
 
+  document.getElementById("colorPicker").addEventListener('change', (event) => { 
+    const projectColor = event.target.value
+    console.log('colorchange')
+    console.log(projectColor)
+
+  });
     
    // const discardBtns = document.querySelectorAll('.discardBtn');
     //discardBtns.forEach(btn => {
@@ -91,6 +99,9 @@ document.getElementById("discardBtn").addEventListener('click', () => {
 
 }
 
+
+
+
 function deleteEditableProjectUI(){
   const editableProjectCard = document.querySelector('.editableProjectCard');
   editableProjectCard.remove();
@@ -100,8 +111,12 @@ function deleteEditableProjectUI(){
 function replaceEditableProjectUI(){
   const editableProjectCard = document.querySelector('.editableProjectCard');
   const editableHeading = document.getElementById("editableHeading").textContent; // TAKE VARIABLE
+
+  const projectColor = document.getElementById("colorPicker").value;
+  console.log(projectColor)
+
   editableProjectCard.remove();
-  createProjectUI(editableHeading,"0");
+  createProjectUI(editableHeading,"0", projectColor);
 
 }
 

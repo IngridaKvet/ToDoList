@@ -139,7 +139,7 @@ h2,p{
 }
 
 .icon {
-    width: 24px; /* Adjust as needed */
+    width: 24px;
     height: auto;
 }
 
@@ -148,13 +148,27 @@ h2,p{
 }
 
 .projectColorIndicator{
-    background-color: #555;
+  
     min-width: 20px;
+    max-width: 20px;
     height: 100%;
     border-radius: 10px;
     margin-right: 20px;
+    padding: 0;
+    background: none;
+    border: none;
+    appearance: none;
+    
 }
   
+.projectColorIndicatorGeneral{
+    background-color: #555;
+}
+
+.projectColorIndicator::-webkit-color-swatch{
+    border-radius: 10px;
+}
+
 /* Notes Section */
 
 .notesSection{
