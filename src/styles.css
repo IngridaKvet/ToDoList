@@ -16,6 +16,7 @@ html{
 }
   
 body{
+    position: relative;
     height: 100%;
     background: var(--background-color);
     color: var(--text-color);
@@ -83,7 +84,7 @@ body{
     display: flex;
     flex-direction: row;
     flex-shrink: 0;
-    height: 65px;
+    min-height: 65px;
     border-radius: 40px;
     padding: 20px;
     background-color: var(--default-card-bg-color);
@@ -118,6 +119,7 @@ h2,p{
     align-items: flex-end;
     justify-content: center;
     gap: 15px;
+    margin-left: 20px;
 }
 
 .saveBtnContainer{
@@ -219,6 +221,11 @@ button{
     color: #000000; 
 }
 
+.redBtn{
+    background-color: #FF9B9B;
+    color: #000000; 
+}
+
 .bigBtn{
     font-size: 20px;
     padding: 15px;
@@ -237,6 +244,46 @@ button{
     margin-right: 15px;
     margin-bottom: 15px;
 }
+
+/* Modal */
+.modalOverlay{
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background:rgba(0, 0, 0, .25)
+    
+}
+
+.modalCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #F6F6F7;
+    width: 317px;
+    height: 189px;
+    padding: 30px;
+    text-align: center;
+    gap: 20px;
+    border-radius: 40px;
+}
+
+.modalCard button{
+    margin-left: auto;
+}
+
+.btnContainer{
+    display: flex;
+    gap: 20px;
+}
+
 
 /* Dark mode styles */
 body.dark-mode {
