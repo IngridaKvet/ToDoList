@@ -2,9 +2,13 @@ import editBtnIcon from "../img/editBtn.svg"
 import deleteBtnIcon from "../img/dltBtn.svg"
 import saveBtnIcon from "../img/saveIcon.svg"
 import discardBtnIcon from "../img/xIcon.svg"
-import { createModalOverlay } from "./modal.js";
+import { addListenersEditableProjectCard, addListenersProjectCard } from "./eventManager";
 
-function createEditableProjectUI(){
+function createEditableProjectCard(inputProjectName, inputTaskNumber, inputColorValue){
+  const headingName = inputProjectName || "Default project";
+  const taskNumber = inputTaskNumber || "0"
+  const colorValue = inputColorValue || "#555555"
+
   const projectsContainer = document.querySelector('.projectsContainer');
   const projectCard = document.createElement("article");
   projectCard.classList.add("projectCard", "editableProjectCard");
@@ -12,16 +16,17 @@ function createEditableProjectUI(){
   colorIndicator.classList.add("projectColorIndicator");
   colorIndicator.setAttribute('type', 'color');
   colorIndicator.setAttribute('id', 'colorPicker');
+  colorIndicator.setAttribute('value', colorValue)
   projectCard.appendChild(colorIndicator);
   const textContainer = document.createElement("div");
   textContainer.classList.add("projectTextContainer");
   const heading = document.createElement("h2");
   heading.setAttribute("id", "editableHeading")
   heading.contentEditable = "true"; 
-  heading.textContent = "Default project Name";   
+  heading.textContent = headingName;  
   textContainer.appendChild(heading);
   const paragraph = document.createElement("p");
-  paragraph.textContent = "0 tasks";
+  paragraph.textContent = taskNumber + " tasks";
   textContainer.appendChild(paragraph);
   projectCard.appendChild(textContainer);
   const editBtnContainer = document.createElement("div");
@@ -56,72 +61,23 @@ function createEditableProjectUI(){
     }
   })
   
-  // save project icon is pressed: remove editable mode
-  document.getElementById("saveBtn").addEventListener('click', () => {
-    replaceEditableProjectUI();
-  });
-
-  // discard project icon is pressed, open confirmation modal. Discard or keep.
-  document.getElementById("discardBtn").addEventListener('click', () => { 
-    createModalOverlay();
-  });
-
-  document.getElementById("colorPicker").addEventListener('change', (event) => { 
-    const projectColor = event.target.value
-    console.log('colorchange')
-    console.log(projectColor)
-
-  });
-    
-   // const discardBtns = document.querySelectorAll('.discardBtn');
-    //discardBtns.forEach(btn => {
-     // btn.addEventListener('click', () => {
-
-        //console.log("discard clicked")
-        /*
-        if (!document.querySelector('.modalOverlay')) {
-        createModalOverlay();
-        }*/
-     // });
-    //});
-
-/*
-document.getElementById("discardBtn").addEventListener('click', () => {
-  //createProjectUI("Career", 3, "#FFFFFF");
-  createModalOverlay();
-
-});
-*/
-
-
-
-
-
+  addListenersEditableProjectCard()
 }
 
-
-
-
-function deleteEditableProjectUI(){
+function deleteEditableProjectCard(){
   const editableProjectCard = document.querySelector('.editableProjectCard');
   editableProjectCard.remove();
 }
 
-
-function replaceEditableProjectUI(){
+function replaceEditableProjectCard(){
   const editableProjectCard = document.querySelector('.editableProjectCard');
   const editableHeading = document.getElementById("editableHeading").textContent; // TAKE VARIABLE
-
   const projectColor = document.getElementById("colorPicker").value;
-  console.log(projectColor)
-
   editableProjectCard.remove();
-  createProjectUI(editableHeading,"0", projectColor);
-
+  createProjectCard(editableHeading,"0", projectColor);
 }
 
-// create project UI
-function createProjectUI(projectName, taskNumber, indicatorColor){
+function createProjectCard(projectName, taskNumber, indicatorColor){
   const projectsContainer = document.querySelector('.projectsContainer');
   const article = document.createElement('article');
   article.classList.add('projectCard');
@@ -139,14 +95,18 @@ function createProjectUI(projectName, taskNumber, indicatorColor){
   const editBtnContainer = document.createElement('div');
   editBtnContainer.classList.add('editBtnContainer');
   const editButton = document.createElement('button');
+  editButton.setAttribute('id', 'editProjectBtn')
   editButton.classList.add('icon-btn');
+  editButton.classList.add('editProjectBtn');
   const editIcon = document.createElement('img');
   editIcon.src = editBtnIcon;
   editIcon.alt = 'Edit';
   editIcon.classList.add('icon');
   editButton.appendChild(editIcon);
   const deleteButton = document.createElement('button');
+  deleteButton.setAttribute('id', 'deleteProjectBtn')
   deleteButton.classList.add('icon-btn');
+  deleteButton.classList.add('deleteProjectBtn');
   const deleteIcon = document.createElement('img');
   deleteIcon.src = deleteBtnIcon;
   deleteIcon.alt = 'Delete';
@@ -157,23 +117,9 @@ function createProjectUI(projectName, taskNumber, indicatorColor){
   article.appendChild(projectColorIndicator);
   article.appendChild(projectTextContainer);
   article.appendChild(editBtnContainer);
-
   projectsContainer.appendChild(article);
+
+  addListenersProjectCard();
 }
 
-
-  
-
-
-
-
-
-// delete project UI valid for discard project in editable mode and delete project.
-
-
-// edit project UI (change name and indicator color)
-
-  //createProjectUI(projectName,taskNumber, indicatorColor);
-
-export {createEditableProjectUI, createProjectUI, replaceEditableProjectUI, deleteEditableProjectUI}
-
+export {createEditableProjectCard, deleteEditableProjectCard, replaceEditableProjectCard, createProjectCard}

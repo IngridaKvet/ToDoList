@@ -1,7 +1,6 @@
 import discardBtnIcon from "../img/xIcon.svg"
-import { deleteEditableProjectUI } from "./projectsUI";
 
-function createModalOverlay(){
+function createModalOverlay(projectToDelete){
   const modalOverlay = document.createElement('div');
   modalOverlay.className = 'modalOverlay';
   const modalCard = document.createElement('div');
@@ -36,15 +35,15 @@ function createModalOverlay(){
   modalOverlay.appendChild(modalCard);
   document.body.appendChild(modalOverlay);
 
-  addListeners();
+  addListeners(projectToDelete);
 }
 
-function addListeners(){
+function addListeners(projectToDelete){
   document.getElementById("closeBtn").addEventListener('click', () => closeModal());
   document.getElementById("cancelBtn").addEventListener('click', () => closeModal());
   document.getElementById("proceedBtn").addEventListener('click', () => {
+    projectToDelete.remove();
     closeModal();
-    deleteEditableProjectUI();
   });
 
   const modalOverlay = document.querySelector('.modalOverlay');

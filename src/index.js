@@ -1,6 +1,12 @@
 import "./styles.css";
-import { createProjectUI, createEditableProjectUI, replaceEditable, replaceEditableProjectUI } from "./modules/projectsUI";
-import { createModalOverlay } from "./modules/modal";
+
+import {addProjectToArray, createProject, discardProject, editProject } from "./modules/projectManager";
+import { addListers } from "./modules/eventManager";
+
+
+addListers()
+
+//discardProject()
 
 /*
 console.log("Hi")
@@ -15,9 +21,16 @@ document.querySelector('#theme-toggle').addEventListener('click', () => {
   //createProjectUI("Career", 3, "#FFFFFF");
   //createProjectUI("Sports", 14, "#FFC0CB");
 
+
+  /*
+// Create general project
+const generalProject = createProject("General", "0", "#555555");
+console.log(generalProject)
+
+
+
+// Create new project
 document.getElementById("createProjectBtn").addEventListener('click', () => {
-  //createProjectUI("Career", 3, "#FFFFFF");
-  
   const editableProjectCard = document.querySelector('.editableProjectCard');
   if(editableProjectCard){
     console.log("there is")
@@ -26,12 +39,17 @@ document.getElementById("createProjectBtn").addEventListener('click', () => {
 
   }else{console.log("there is not")
   createEditableProjectUI();
-}
-
-  //createEditableProjectUI();
-
-  
-  //editableProjectCard.remove();
-
-
+  }
 });
+
+
+*/
+
+
+
+
+
+
+
+
+//User discards project that is in edit mode
